@@ -1,0 +1,2 @@
+rootProject.name='Fil rouge'
+include ':app'

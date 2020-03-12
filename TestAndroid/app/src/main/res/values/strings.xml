@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestAndroid</string>
+    <string name="edit_message">Entrez votre prénom</string>
+    <string name="button_send">Lancer Jeu</string>
+</resources>

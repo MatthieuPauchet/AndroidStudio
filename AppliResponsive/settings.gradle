@@ -1,0 +1,2 @@
+rootProject.name='AppliResponsive'
+include ':app'
