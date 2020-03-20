@@ -78,7 +78,6 @@ public class ListSousRubriqueActivity extends AppCompatActivity {
     private void getSousRubrique(int id){
         Call<List<Rubrique>> call = jsonPlaceHolderApi.getSousRubrique(id);
 
-
         call.enqueue(new Callback<List<Rubrique>>() {
             @Override
             public void onResponse(Call<List<Rubrique>> call, Response<List<Rubrique>> response) {
