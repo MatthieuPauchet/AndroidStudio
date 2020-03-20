@@ -4,39 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListSousRubriqueActivity"
+    tools:context=".ListProduitRubriqueActivity"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="Sélectionner une sous rubrique"
-        android:textSize="20sp"
+        android:layout_weight="0"
+        android:textSize="28sp"
+        android:text="La liste de tous nos produis disponible !!!"
         android:textAlignment="center"
-        android:gravity="center"
+        android:textColor="@color/colorAliceBlue"
         android:background="@color/colorBlueDark"
-        android:textColor="@color/colorAliceBlue"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:text="Liste de tous le produits de la rubrique"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:background="@color/colorBlueLight"
-        android:textColor="@color/colorBlueDark"/>
+        android:layout_gravity="center"/>
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/colorAliceBlue"/>
-
-
-
 </LinearLayout>

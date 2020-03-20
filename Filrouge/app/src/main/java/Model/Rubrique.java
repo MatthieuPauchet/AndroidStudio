@@ -1,4 +1,4 @@
-package com.afpa.filrouge;
+package Model;
 
 import androidx.annotation.NonNull;
 

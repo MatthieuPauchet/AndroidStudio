@@ -4,35 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListProduit"
+    tools:context=".ListProduitActivity"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/entete"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorBlueLight"
-        android:textColor="@color/colorBlueDark">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Sélectionner une rubrique pour filter la liste"
-            android:textAlignment="center"
-            android:layout_gravity="center"/>
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"/>
-    </LinearLayout>
+        android:layout_weight="0"
+        android:textSize="28sp"
+        android:text="La liste de tous nos produis disponible !!!"
+        android:textAlignment="center"
+        android:textColor="@color/colorAliceBlue"
+        android:background="@color/colorBlueDark"
+        android:layout_gravity="center"/>
 
     <ListView
         android:id="@+id/listView"
@@ -40,6 +25,5 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
-
+        android:background="@color/colorAliceBlue"/>
 </LinearLayout>

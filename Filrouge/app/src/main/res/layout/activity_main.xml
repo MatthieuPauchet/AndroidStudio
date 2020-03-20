@@ -34,7 +34,8 @@
         android:onClick="LoadViewListRubrique"
         android:paddingRight="10sp"
         android:paddingLeft="10sp"
-        android:textColor="@color/colorBlueDark"/>
+        android:textColor="@color/colorAliceBlue"
+        android:background="@color/colorBlueDark"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -50,7 +51,11 @@
         android:layout_weight="1"
         android:onClick="LoadViewListProduit"
         android:text="Liste des produits"
-        android:textColor="@color/colorBlueDark"/>
+        android:paddingRight="10sp"
+        android:paddingLeft="10sp"
+        android:textColor="@color/colorAliceBlue"
+        android:background="@color/colorBlueDark"/>
+
 
     <TextView
         android:layout_width="match_parent"

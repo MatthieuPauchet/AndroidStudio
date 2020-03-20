@@ -9,13 +9,19 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.List;
 
+import Model.JsonPlaceHolderApi;
+import Model.Produit;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static Model.JsonPlaceHolderApi.urlAPI;
+import static Model.JsonPlaceHolderApi.urlPhoto;
 
 public class DetailProduitActivity extends AppCompatActivity {
 
@@ -26,6 +32,7 @@ public class DetailProduitActivity extends AppCompatActivity {
     List<Produit> produits;
     Produit produit;
     JsonPlaceHolderApi jsonPlaceHolderApi;
+    int pro_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,24 +40,27 @@ public class DetailProduitActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_detail_produit);
 
+        Bundle b = getIntent().getExtras();
+        pro_id = b.getInt("pro_id");
+
         ivProduit = findViewById(R.id.ivPicture);
         tvName = findViewById(R.id.tvLibelleCourt);
         tvLibelle = findViewById(R.id.tvLibelleLong);
         tvPrix = findViewById(R.id.tvPrix);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://dev.amorce.org/mpar/filrouge/index.php/Api/")
+                .baseUrl(urlAPI)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-        getProduit();
+        getProduit(pro_id);
     }
 
 
-    private void getProduit(){
-        Call<List<Produit>> call = jsonPlaceHolderApi.getProduit();
+    private void getProduit(int id){
+        Call<List<Produit>> call = jsonPlaceHolderApi.getProduit(id);
 
         call.enqueue(new Callback<List<Produit>>() {
             @Override
@@ -63,10 +73,13 @@ public class DetailProduitActivity extends AppCompatActivity {
                 produits = response.body();
                 produit = produits.get(0);
 
-                tvName.setText(produits.get(0).getPro_libelle_court());
-                tvLibelle.setText(produits.get(0).getPro_libelle_long());
-                tvPrix.setText(String.valueOf(produits.get(0).getPro_prix_achat()));
-                Picasso.get().load("https://dev.amorce.org/mpar/filrouge/assets/images/"+produit.getPro_photo()).into(ivProduit);
+                tvName.setText(produit.getPro_libelle_court());
+                tvLibelle.setText(produit.getPro_libelle_long());
+                final NumberFormat instance = NumberFormat.getNumberInstance();
+                instance.setMinimumFractionDigits(2);
+                instance.setMaximumFractionDigits(2);
+                tvPrix.setText("Prix : "+instance.format(produit.getPro_prix_achat())+"€");
+                Picasso.get().load(urlPhoto + produit.getPro_photo()).into(ivProduit);
             }
 
             @Override

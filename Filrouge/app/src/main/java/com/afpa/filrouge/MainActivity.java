@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void LoadViewListProduit(View view){
-        Intent intent = new Intent(this, ListProduit.class);
+        Intent intent = new Intent(this, ListProduitActivity.class);
         startActivity(intent);
     }
 
     public void LoadViewListRubrique(View view){
-        Intent intent = new Intent(this, ListSousRubrique.class);
+        Intent intent = new Intent(this, ListRubriqueActivity.class);
         startActivity(intent);
     }
 
